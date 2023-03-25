@@ -38,7 +38,7 @@ export class AppService {
   }
 
   async badFindLike(name: string): Promise<Article[]> {
-    //全件取得出来てしまう。 => a'  and '1' or '1
+    //全件取得出来てしまう。 => a'  or '1' or '1
 
     //意図した挙動になるが、、。
     let a = `%${name}%`;
