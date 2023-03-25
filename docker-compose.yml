@@ -1,0 +1,38 @@
+version: '3'
+services:
+  mysql:
+    container_name: mysql99
+    build: ./db/
+    volumes:
+      - ./db/initdb.d:/docker-entrypoint-initdb.d # ./mysql/initdb.dは入れたいフォルダ名パス。
+      - ./db/mysql/logs:/var/lib/logs
+    environment:
+      MYSQL_DATABASE: sample_db #はじめに作成します！データベース
+      MYSQL_ROOT_PASSWORD: example # これでmysqlのrootユーザー exampleパスで入れる
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      TZ: Asia/Tokyo
+    restart: always
+    ports:
+      - 3399:3306
+    # command: --default-authentication-plugin=mysql_native_password
+
+  adminer:
+    container_name: adminer99
+    image: adminer
+    restart: always
+    ports:
+      - 8085:8080
+
+  api:
+    container_name: app99
+    build: ./app/
+    tty: true
+    working_dir: /home/node/app
+    volumes:
+        - ./app/:/home/node/app # コンテナ home/node/app の中に/appの中身を入れる
+    ports:
+      - "8082:8081"
+      - "3001:3000"
+    depends_on: #api開始の前にmysqlを起動する
+      - mysql
