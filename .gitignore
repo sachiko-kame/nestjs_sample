@@ -1,0 +1,35 @@
+# compiled output
+app/nest-sample/dist
+app/nest-sample/node_modules
+
+# Logs
+app/nest-sample/logs
+app/nest-sample/*.log
+app/nest-sample/npm-debug.log*
+app/nest-sample/pnpm-debug.log*
+app/nest-sample/yarn-debug.log*
+app/nest-sample/yarn-error.log*
+app/nest-sample/lerna-debug.log*
+
+# OS
+app/nest-sample/.DS_Store
+
+# Tests
+app/nest-sample/coverage
+app/nest-sample/.nyc_output
+
+# IDEs and editors
+app/nest-sample/.idea
+app/nest-sample/.project
+app/nest-sample/.classpath
+app/nest-sample/.c9/
+app/nest-sample/*.launch
+app/nest-sample/.settings/
+app/nest-sample/*.sublime-workspace
+
+# IDE - VSCode
+app/nest-sample/.vscode/*
+app/nest-sample/!.vscode/settings.json
+app/nest-sample/!.vscode/tasks.json
+app/nest-sample/!.vscode/launch.json
+app/nest-sample/!.vscode/extensions.json
