@@ -64,7 +64,7 @@ $ npm run start:dev
 http://192.168.99.100:3001/
 
 
-確認URL admine
+確認URL adminer
 http://192.168.99.100:8085/
 
 情報
