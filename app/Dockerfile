@@ -4,7 +4,9 @@ FROM node:19
 RUN node -v
 
 # nestjsのインストール　バージョン指定の場合は後ろに@9.1.2付与
-RUN npm i -g @nestjs/cli
+# 最初プロジェクト入れる時のみ必要だったためコメントアウト
+# RUN npm i -g @nestjs/cli
 
 # バージョンの確認とnest問題なく入っているかの確認
-RUN nest -v
+# 最初プロジェクト入れる時のみ必要だったためコメントアウト
+# RUN nest -v

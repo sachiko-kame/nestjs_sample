@@ -143,3 +143,14 @@ $ docker system prune --volumes
 ```
 
 ## そのほか
+
+- `make start`以下行った状況で問題なく動く確認していますが、不足あるかもしれません。もしかしたら必要なのかもはコメントアウトで残しています。
+
+```
+$ docker stop <appコンテナID> <dbコンテナID> <adminerコンテナID>
+$ docker rm <appコンテナID> <dbコンテナID> <adminerコンテナID>
+$ docker system prune --volumes
+$ docker image prune
+```
+
+- `docker stop`のみの場合はdb確認作業の時間は2,3回のみですが、全部削除からだと23回ほどかかります。
