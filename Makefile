@@ -19,11 +19,11 @@ db_check:
 	@for i in {1..40}; \
 		do sleep 1; \
 		mysql99_sock=`docker exec -i -t mysql99 bash -c 'ls /var/run/mysqld/mysqld.sock' | cut -c 24-27 | sed 's/ //g'`; \
-    	if [ $$mysql99_sock == 'sock' ]; then \
-    	  echo '確認出来ましたので抜けます。'$$i'/40 回目'; \
+		if [ $$mysql99_sock == 'sock' ]; then \
+		  echo '確認出来ましたので抜けます。'$$i'/40 回目'; \
 		  break; \
-    	else \
-    	  echo '確認出来ませんでした。'$$i'/40 回目'; \
+		else \
+		  echo '確認出来ませんでした。'$$i'/40 回目'; \
     	fi; \
 	done 
 	@echo '確認作業終了(◍•ᴗ•◍) ※この時点で40/40 回目の表示がある場合上手く言っていません。make db_check, make db_start 実行お願いします。'
