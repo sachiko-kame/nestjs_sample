@@ -122,6 +122,9 @@ $ npm install --save typeorm mysql2
 
 # 以下をmain.tsファイルに追記
 import "reflect-metadata";
+
+//https://docs.nestjs.com/techniques/validation
+$ npm i --save class-validator class-transformer
 ```
 
 ## ヒント (全体)

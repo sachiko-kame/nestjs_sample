@@ -1,6 +1,9 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Query, Post, Body } from '@nestjs/common';
+import { agent } from 'supertest';
 import { AppService } from './app.service';
 import { Article } from './entity/article.entity';
+import { CatParams } from './params/cat-params'
+import { CatDto } from './dto/cat-dto'
 
 @Controller()
 export class AppController {
@@ -12,8 +15,19 @@ export class AppController {
   }
 
   @Get('name')
-  find(@Query("name") name): Promise<Article[]> {
-    console.log(name);
+  find(
+    @Query() params: CatParams, 
+  ): Promise<Article[]> {
+    console.log(params.name);
+    return this.appService.findAll();
+  }
+
+
+  @Post('name')
+  find1(
+    @Body() createUserDto:  CatDto
+  ): Promise<Article[]> {
+    // console.log(params.name);
     return this.appService.findAll();
   }
 
