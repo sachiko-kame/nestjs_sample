@@ -7,6 +7,7 @@
 ## 前提
 
 ・docker が使えること。(docker run hello-world が問題なく動く状態)<br>
+※dockerコマンドは『docker desktop』で入れてください。
 ・make コマンドが使えること。
 
 - 共有事項
@@ -26,6 +27,18 @@ $ make start
 
 ```
 $ make app_start
+
+or
+
+$ docker-compose up --build -d
+
+$ docker exec -i -t mysql99 bash
+$ mysql -u root -p //パスは『example』
+//nestjs_sample/db/initdb.d/sample.sqlのsqlうつ。
+exit2回うってで出る。
+
+$ docker exec -i -t app99 bash
+$ cd ./nest-sample && npm run start:dev
 ```
 
 ## データリセットしたい時
@@ -61,11 +74,11 @@ $ cd nest-sample
 $ npm run start:dev
 
 確認URL app
-http://192.168.99.100:3001/
+http://localhost:3001/
 
 
 確認URL adminer
-http://192.168.99.100:8085/
+http://localhost:8085/
 
 情報
 サーバー: mysql99
@@ -114,8 +127,11 @@ import "reflect-metadata";
 ## ヒント (全体)
 
 - ヒント 1
-  私の環境では docker の ip が`192.168.99.100`なのでこれで作成していますが、
-  docker の ip が`localhost`とかだと意図した繋がりにならないかと思います。
+
+以下箇所OSのlocalhostに当てられているip出ないといけなさそう、macだと`127.0.0.1`でないこともあり。windowsはまだ確認出来ていない。
+```
+host: '192.168.3.35',
+```
 
 ## ヒント (docker)
 
